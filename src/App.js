@@ -1,8 +1,12 @@
 import axios from 'axios';
 import './App.css';
 import { handleClick } from './utilities/test/index';
+import { useContext } from 'react';
+import { AppContext } from './contexts/app_context';
 
 function App() {
+
+  const { test } = useContext( AppContext )
 
   const button = async () => {
     const testResponse = await handleClick()
@@ -18,6 +22,7 @@ function App() {
       </ol>
 
     <button onClick={button}>Test</button>
+    <h1>{ test }</h1>
 
 
     </div>
