@@ -9,6 +9,11 @@ const testRoute = require('./routes/test/test')
 // API routes
 app.use( '/test', testRoute )
 
+// catch all
+app.get( '/*', ( req, res ) => {
+    res.send("You are off course Agent. Return to <HQ/>")
+})
+
 app.listen( PORT, () => {
     console.log( `Server is running on PORT ${PORT}` )
 })
