@@ -1,22 +1,12 @@
 import axios from 'axios';
 import './App.css';
+import { handleClick } from './utilities/test/index';
 
 function App() {
 
-  const BASE_URL = '/test'
-
-  const handleClick = async () => {
-    console.log( 'button clicked' )
-    try {
-      const res = await axios( BASE_URL, {
-        method: "GET",
-        headers: {
-          "Content-Type" : "application/json"
-        },
-      })
-    } catch (error) {
-      console.error( error )
-    }
+  const button = async () => {
+    const testResponse = await handleClick()
+    console.log( testResponse ) // undefined
   }
 
   return (
@@ -27,7 +17,7 @@ function App() {
         <li> front end form  </li>
       </ol>
 
-    <button onClick={handleClick}>Test</button>
+    <button onClick={button}>Test</button>
 
 
     </div>
