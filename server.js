@@ -11,7 +11,7 @@ app.use( '/test', testRoute )
 
 // catch all
 app.get( '/*', ( req, res ) => {
-    res.send("You are off course Agent. Return to <HQ/>")
+    res.send("no api endpoint here")
 })
 
 app.listen( PORT, () => {
