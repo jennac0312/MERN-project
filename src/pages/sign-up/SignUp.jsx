@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './signup.css'
 import { signUp, testSignUp } from '../../utilities/sign-up'
 import Error from '../../components/error-message/Error'
 
 const SignUp = () => {
 
-    const [ formData, setFormData ] = useState({})
+    const [ formData, setFormData ] = useState({
+        name: "",
+        username: "",
+        password: "",
+        confirmPassword: ""
+    })
+    const [ isDisabled, setIsDisabled ] = useState(true)
     const [ showPassword, setShowPassword ] = useState(false)
     const [ passwordsMatch, setPasswordsMatch ] = useState(null)
 
@@ -23,14 +29,18 @@ const SignUp = () => {
 
     const handleSubmit = async ( e ) => {
         e.preventDefault()
-        // setPasswordsMatch(formData.password === formData.confirmPassword)
+        setPasswordsMatch(formData.password === formData.confirmPassword)
 
-        console.log( 'signing up as', formData )
-        await signUp( formData )
-        // await testSignUp()
+        if( !passwordsMatch ) return
+        else{
+            console.log( 'signing up as', formData )
+            await signUp( formData )
+            // await testSignUp()
+        }
+
     }
 
-    const isDisabled = () => {
+    const checkDisable = () => {
         // let fields = []
         // let inputs = document.querySelectorAll('form input')
         // console.log(inputs)
@@ -43,8 +53,12 @@ const SignUp = () => {
         const inputs = document.querySelectorAll('form input')
 
         for( const input of inputs ){
-            if( input.value.trim() === "") return true
+            if( input.value.trim() === ""){
+                setIsDisabled(true)
+                return true
+            }
         }
+        setIsDisabled(false)
         return false
 
         // console.log(fields)
@@ -55,6 +69,23 @@ const SignUp = () => {
 
         return false
     }
+
+    const checkPasswords = () => {
+        const { password, confirmPassword } = formData
+
+        if( password === "" || confirmPassword === "" ){
+            setPasswordsMatch(false)
+        } else if( password === confirmPassword ){
+            setPasswordsMatch(true)
+        } else {
+            setPasswordsMatch(false)
+        }
+    }
+
+    useEffect(() => {
+        checkDisable()
+        checkPasswords()
+    }, [formData])
 
   return (
     <main>
@@ -108,13 +139,16 @@ const SignUp = () => {
                     { showPassword ? '🙊' : '🙈' }
                 </span>
             </div>
-            <button type='submit' disabled={isDisabled()}>Sign Up</button>
+            <button type='submit' disabled={isDisabled}>Sign Up</button>
         </form>
-        disabled: {String(isDisabled())}
-        {/* { String(passwordsMatch) } */}
-        {/* { !passwordsMatch || passwordsMatch !== null &&  */}
-            <Error message="Passwords do not match"/>
-        {/* } */}
+        disabled: {String(isDisabled)}
+        <br />
+        passwords match: { String(passwordsMatch) }
+        { !isDisabled && !passwordsMatch && passwordsMatch !== null ?
+            <Error message="Passwords do not match"/> 
+            :
+            passwordsMatch && <p>Signing up</p>
+        }
 
     </main>
   )
