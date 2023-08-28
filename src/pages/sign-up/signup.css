@@ -1,0 +1,17 @@
+* {
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+main button {
+    width: fit-content;
+    margin: auto;
+}
+
+.asterisk {
+    font-family: 'wingdings';
+}

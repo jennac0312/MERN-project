@@ -7,7 +7,7 @@ export const handleClick = async () => {
         const res = await axios( BASE_URL, {
             method: "GET",
             headers: {
-                // "Content-Type" : "application/json"
+                // "Content-Type" : "application/json" // not needed for some reason
             },
         })
         console.log('HANDLECLICK RESPONSE', res )
