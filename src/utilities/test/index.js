@@ -19,3 +19,8 @@ export const handleClick = async () => {
         console.error( error )
     }
 }
+
+export const testing = async () => {
+    const res = await axios( BASE_URL + '/testing')
+    console.log( res )
+}
