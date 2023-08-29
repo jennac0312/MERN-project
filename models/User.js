@@ -18,6 +18,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    role : {
+        type: String,
+        required: true,
+    },
+    rank: {
+        type: Number,
+        required: true
+    }
 },
     {
         timestamps: true
