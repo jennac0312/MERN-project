@@ -17,6 +17,10 @@ function App() {
     console.log( testResponse ) // undefined
   }
 
+  const seed = async () => {
+    await axios.get('/seed/users')
+  }
+
   return (
     <div className="App">
       <ol>
@@ -35,7 +39,7 @@ function App() {
       <Route path={"/*"} element={ <h1>You are off course Agent. Return to {'<HQ/>'}</h1>} />
     </Routes>
 
-
+    <button onClick={seed}>seed</button>
     </div>
   );
 }

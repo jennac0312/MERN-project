@@ -18,7 +18,7 @@ export const signUp = async ( formData ) => {
         //     },
         //     body: JSON.stringify( formData )
         // })
-        console.log(res)
+        console.log(res.data)
     } catch (error) {
         console.error( error )
     }

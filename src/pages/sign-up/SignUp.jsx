@@ -84,7 +84,12 @@ const SignUp = () => {
 
     useEffect(() => {
         checkDisable()
-        checkPasswords()
+        // setPasswordsMatch(false)
+        // setPasswordsMatch(formData.password === formData.confirmPassword)
+
+        return () => {
+            checkPasswords()
+        }
     }, [formData])
 
   return (
