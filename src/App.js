@@ -6,40 +6,35 @@ import { AppContext } from './contexts/app_context';
 import { Routes, Route } from 'react-router-dom';
 import LogIn from './pages/log-in/LogIn';
 import SignUp from './pages/sign-up/SignUp';
+import Root from './pages/root/Root';
+import Welcome from './pages/welcome/Welcome';
+import Home from './pages/home/Home';
+import Nav from './components/nav/Nav';
+import Burner from './pages/burner/Burner';
+import SafeHouse from './pages/safehouse/SafeHouse';
 
 function App() {
 
-  const { test } = useContext( AppContext )
-
-  const button = async () => {
-    const testResponse = await handleClick()
-    // const testResponse = await testing()
-    console.log( testResponse ) // undefined
-  }
-
-  const seed = async () => {
-    await axios.get('/seed/users')
-  }
+  const { showNav } = useContext( AppContext )
 
   return (
     <div className="App">
-      <ol>
-        <li> authentication </li>
-        <li> back end auth route </li>
-        <li> front end form  </li>
-      </ol>
-
-    <button onClick={button}>Test Backend</button>
-    <h1>{ test }</h1>
-
+      { showNav && <Nav /> }
     <Routes>
+      <Route path={"/"} element={ <Welcome /> } />
+      <Route path={"/headquarters"} element={ <Home /> } />
+      <Route path={"/burner"} element={ <Burner /> } />
+      <Route path={"/safehouse"} element={ <SafeHouse /> } />
+      
       <Route path={"/login"} element={ <LogIn /> } />
       <Route path={"/signup"} element={ <SignUp /> } />
+      {/* <Route path={"/welcome"} element={ <Welcome /> } /> */}
+
+
       <Route path={"/test"} element={ <h1>test route works</h1>} />
       <Route path={"/*"} element={ <h1>You are off course Agent. Return to {'<HQ/>'}</h1>} />
     </Routes>
 
-    <button onClick={seed}>seed</button>
     </div>
   );
 }

@@ -1,7 +1,10 @@
 import axios from "axios"
 const BASE_URL = '/user/signup'
 
+
 export const signUp = async ( formData ) => {
+
+    
     try {
         const res = await axios.post(BASE_URL, formData, {
             // method: "POST",
@@ -18,7 +21,9 @@ export const signUp = async ( formData ) => {
         //     },
         //     body: JSON.stringify( formData )
         // })
-        console.log(res.data)
+        const user = res.data
+        console.log('USER ADDED TO DB:', user)
+
     } catch (error) {
         console.error( error )
     }

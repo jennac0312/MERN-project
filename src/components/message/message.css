@@ -1,0 +1,34 @@
+.message {
+    border: 1px solid lime;
+    height: fit-content;
+    width: 750px;
+    margin: 10px auto;
+    display: flex;
+}
+
+.message > * {
+    border: 1px solid red;
+}
+
+.message .avi {
+    border: 1px solid white;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+p.username{
+    /* border: 1px solid purple; */
+    font-weight: bold !important;
+}
+
+.message .right {
+    margin: 10px;
+    text-align: left;
+}
+
+.messageContents{
+    border: 1px solid brown;
+    margin-top: -60px;
+}

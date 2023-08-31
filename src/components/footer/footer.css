@@ -1,0 +1,8 @@
+footer {
+    border: 1px solid lime;
+    background-color: rgba(0, 255, 255, 0.192);
+    height: 70px;
+    width: 820px;
+    position: absolute;
+    bottom: 0;
+}

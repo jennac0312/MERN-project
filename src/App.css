@@ -1,3 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
+  margin: 40px auto;
   text-align: center;
+  border: 1px solid red;
+  /* border-radius: 40px; */
+  
+  max-height: 1180px;
+  height: 1180px;
+  
+  max-width: 820px;
+  width: 820px;
+  
+  background-color: slategray;
+  
+  display: flex;
+  overflow-x: hidden;
+  
+  position: absolute;
+}
+/* .App > * {
+  border: 1px solid red;
+} */
+
+.hover {
+  cursor: pointer;
+}
+
+.icon-40 {
+  font-size: 40px;
+}
+.icon-30 {
+  font-size: 30px;
+}
+.icon-25 {
+  font-size: 25px;
+}
+.icon-20 {
+  font-size: 20px;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }

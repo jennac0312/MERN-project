@@ -24,7 +24,7 @@ const SignUp = () => {
             [e.target.name] : e.target.value
         })
 
-        console.log( formData )
+        console.log( 'FORM DATA',formData )
     }
 
     const handleSubmit = async ( e ) => {

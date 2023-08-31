@@ -1,0 +1,8 @@
+.burner {
+    border: 5px solid green;
+    width: 100%;
+    overflow-y: scroll;
+}
+.burner header {
+    width: 100% !important;
+}

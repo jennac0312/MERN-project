@@ -18,14 +18,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    role : {
+    role: {
         type: String,
-        required: true,
+        default: "agent",
     },
     rank: {
         type: Number,
-        required: true
-    }
+        default: 0,
+    },
 },
     {
         timestamps: true
